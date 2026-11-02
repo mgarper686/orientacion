@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bachillerato Musical</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2a5b;--p:#7c5cf0;--b:#2f5fe0;--g:#14946b;--y:#f5b82e;--o:#ff7a45;--r:#e0364f}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Montserrat',Arial,sans-serif;color:var(--ink);background:#e9efff;padding:18px}
+.wrap{max-width:900px;margin:auto}
+.back{display:inline-block;background:#fff;color:var(--b);font-weight:800;font-size:13px;text-decoration:none;padding:7px 14px;border-radius:20px;border:3px solid var(--b)}
+.back:hover{background:var(--b);color:#fff}
+.head{text-align:center;padding:10px 0 22px}
+.head h1{font-family:'Fredoka',Arial Rounded MT Bold,sans-serif;font-size:clamp(38px,9vw,78px);line-height:.95;color:var(--p);text-shadow:3px 3px 0 #fff,5px 5px 0 var(--b);letter-spacing:1px}
+.head h1 span{display:block;color:var(--b);text-shadow:3px 3px 0 #fff,5px 5px 0 var(--p)}
+.head p{margin-top:14px;font-weight:600;letter-spacing:.5px;font-size:14px}
+.big{background:linear-gradient(135deg,var(--p),var(--b));color:#fff;border-radius:26px;padding:22px 24px;text-align:center;box-shadow:0 8px 0 #1d2a5b33}
+.big h2{font-family:'Fredoka',sans-serif;font-size:clamp(20px,4vw,30px);margin-bottom:8px}
+.big p{font-size:clamp(15px,2.6vw,19px);line-height:1.45}
+.big b{background:var(--y);color:var(--ink);padding:1px 8px;border-radius:8px}
+.steps{display:flex;align-items:stretch;gap:10px;margin:22px 0;flex-wrap:wrap;justify-content:center}
+.st{flex:1 1 220px;background:#fff;border-radius:22px;padding:18px;text-align:center;border:4px solid var(--c);box-shadow:0 6px 0 var(--c)}
+.st .ic{font-size:40px}
+.st h3{font-family:'Fredoka',sans-serif;color:var(--c);font-size:21px;margin:4px 0 6px}
+.st p{font-size:14px;line-height:1.4}
+.op{align-self:center;font-family:'Fredoka',sans-serif;font-size:44px;color:var(--o)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:22px}
+.card{background:#fff;border-radius:26px;padding:20px;border:4px solid var(--c)}
+.card h3{font-family:'Fredoka',sans-serif;color:var(--c);font-size:24px;margin-bottom:10px}
+.card p,.card li{font-size:14.5px;line-height:1.5}
+.card ul{padding-left:0;list-style:none}
+.card li{padding:5px 0 5px 26px;position:relative}
+.card li:before{content:"♪";position:absolute;left:2px;color:var(--c);font-weight:800}
+.hl{font-weight:800;color:var(--c)}
+.cur{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.cur div{flex:1 1 130px;background:#f3f0ff;border-radius:14px;padding:10px}
+.cur b{display:block;font-size:13px;color:var(--p);margin-bottom:3px}
+.cur li{font-size:13px;padding:2px 0 2px 18px}
+.nota{background:#fff;border-radius:26px;padding:22px;border:4px solid var(--b);text-align:center;margin-bottom:22px}
+.nota h3{font-family:'Fredoka',sans-serif;color:var(--b);font-size:26px;margin-bottom:14px}
+.bar{display:flex;height:76px;border-radius:16px;overflow:hidden;font-weight:800;color:#fff;font-size:clamp(13px,2.5vw,17px)}
+.bar div{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 6px;text-align:center;line-height:1.15;min-width:0;font-size:clamp(18px,4.5vw,26px)}
+.bar small{display:block;font-size:clamp(10px,2.2vw,14px);font-weight:600;overflow-wrap:anywhere}
+.b60{width:60%;background:var(--p)}.b40{width:40%;background:var(--o)}
+.leg{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.leg p{flex:1 1 240px;font-size:13.5px;line-height:1.4}
+.ej{margin-top:14px;background:#fff8e1;border:3px dashed var(--y);border-radius:16px;padding:12px;font-size:14px}
+.warn{background:#fff0f2;border:4px solid var(--r);border-radius:26px;padding:18px 20px;margin-bottom:22px;display:flex;gap:14px;align-items:center}
+.warn .ic{font-size:38px}
+.warn p{font-size:14.5px;line-height:1.5}
+.warn b{color:var(--r)}
+.vc{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.vc>div{flex:1 1 220px;border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.45}
+.vc .ok{background:#e6f7ef;border:3px solid var(--g)}.vc .ko{background:#fff;border:3px solid var(--r)}
+.vc ul{list-style:none;padding:0;margin-top:4px}.vc li{padding:3px 0}
+.sim{background:#fff;border:4px solid var(--r);border-radius:26px;padding:18px;margin-bottom:22px}
+.sim .steps{margin:14px 0}
+.sim-h{display:flex;gap:12px;align-items:center;background:var(--r);color:#fff;border-radius:18px;padding:12px 16px}
+.sim-h>span{font-size:36px}
+.sim-h h2{font-family:'Fredoka',sans-serif;font-size:clamp(18px,3.6vw,26px)}
+.sim-h p{font-size:14px;margin-top:2px}
+.hrs{background:#f3f6ff;border-radius:18px;padding:14px;margin-bottom:14px}
+.hrs h3{font-family:'Fredoka',sans-serif;font-size:19px;margin-bottom:10px;color:var(--b)}
+.hb{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:13px;font-weight:600}
+.hb>span{flex:0 0 120px}
+.hbar{flex:1;display:flex;height:34px;border-radius:10px;overflow:hidden}
+.hbar i{font-style:normal;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+.hbar i.gain{background:repeating-linear-gradient(45deg,#ffd36b,#ffd36b 6px,#ffe9b0 6px,#ffe9b0 12px);color:var(--ink)}
+.gaint{margin-top:10px;text-align:center;font-size:16px;background:#fff8e1;border-radius:12px;padding:8px}
+.sim .vc{margin:0 0 14px}
+.sim .vc .ko{background:#fff0f2}
+.vc b{font-family:'Fredoka',sans-serif;font-size:17px}
+.nota2{background:#f3f0ff;border-radius:18px;padding:14px}
+.nota2 h3{font-family:'Fredoka',sans-serif;font-size:19px;color:var(--p);margin-bottom:6px}
+.nota2 .lab{font-size:14px;margin:10px 0 5px}
+.bar.mini{height:62px}
+.bar.mini div{font-size:clamp(16px,3.8vw,22px)}
+.b60.g{background:var(--g)}
+.art{font-size:11.5px;margin-top:8px;opacity:.75;text-align:right}
+@media(max-width:520px){.hb{flex-direction:column;align-items:stretch;gap:3px}.hb>span{flex:none}}
+.foot{text-align:center;font-size:12px;line-height:1.6;opacity:.85;padding-bottom:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">← Volver al inicio</a>
+
+<div class="head">
+<h1>BACHILLERATO<span>MUSICAL</span></h1>
+<p>CONSERVATORIO PROFESIONAL DE MÚSICA “JAVIER PERIANES” DE HUELVA<br>DEPARTAMENTO DE ORIENTACIÓN</p>
+</div>
+
+<div class="big">
+<h2>🎓 La idea en una frase</h2>
+<p>Si <b>terminas las Enseñanzas Profesionales de Música</b> y apruebas las <b>materias comunes de Bachillerato de 1º y 2º</b>, obtienes el <b>título de Bachiller en la modalidad de ARTES</b>.</p>
+</div>
+
+<div class="steps">
+<div class="st" style="--c:#2f5fe0"><div class="ic">🎼</div><h3>Enseñanzas Profesionales</h3><p>Superar las Enseñanzas Profesionales de Música (6 cursos).</p></div>
+<div class="op">+</div>
+<div class="st" style="--c:#14946b"><div class="ic">📚</div><h3>Materias comunes</h3><p>Aprobar solo las materias comunes de 1º y 2º de Bachillerato.</p></div>
+<div class="op">=</div>
+<div class="st" style="--c:#7c5cf0"><div class="ic">🏅</div><h3>Título de Bachiller</h3><p>Modalidad de <b>Artes</b>.</p></div>
+</div>
+
+<div class="grid">
+<div class="card" style="--c:#e0a100">
+<h3>¿Qué es?</h3>
+<p>Se conoce como “bachillerato musical” a la opción que la normativa ofrece al alumnado de Enseñanzas de Régimen Especial (música y danza): obtener el título de Bachiller por la modalidad de Artes superando <span class="hl">únicamente las materias comunes</span> y las Enseñanzas Profesionales.</p>
+</div>
+
+<div class="card" style="--c:#2f5fe0">
+<h3>¿Qué cursaré?</h3>
+<p>Solo las <span class="hl">materias comunes</span>: 13 horas semanales en cada curso (un curso completo de Bachillerato son 30 horas).</p>
+<div class="cur">
+<div><b>1º Bachillerato</b><ul><li>Educación Física</li><li>Lengua Castellana y Literatura I</li><li>Filosofía</li><li>Lengua extranjera I</li></ul></div>
+<div><b>2º Bachillerato</b><ul><li>Historia de la Filosofía</li><li>Lengua Castellana y Literatura II</li><li>Historia de España</li><li>Lengua extranjera II</li></ul></div>
+</div>
+</div>
+
+<div class="card" style="--c:#14946b">
+<h3>¿Qué título obtengo?</h3>
+<p>El <span class="hl">Título de Bachiller por la modalidad de ARTES</span>. Con este título <b>SÍ</b> puedes realizar la PAU.</p>
+</div>
+
+<div class="card" style="--c:#7c5cf0">
+<h3>¿Dónde lo puedo cursar?</h3>
+<p>Las materias comunes se cursan <span class="hl">en cualquier Instituto</span>. Los IES pueden expedir el título de Bachiller de Artes a este alumnado aunque no tengan autorizada la modalidad de Artes (art. 21.8 de la Orden de 30-5-2023).</p>
+</div>
+</div>
+
+<div class="nota">
+<h3>📊 ¿Cómo se calcula la nota del título?</h3>
+<div class="bar"><div class="b60">60%<small>materias comunes</small></div><div class="b40">40%<small>Enseñanzas Profesionales</small></div></div>
+<div class="leg">
+<p><b>60%</b> la media de las calificaciones de las materias comunes de Bachillerato cursadas.</p>
+<p><b>40%</b> la nota media de <b>todas</b> las Enseñanzas Profesionales de Música.</p>
+</div>
+<div class="ej">✏️ <b>Ejemplo:</b> media de materias comunes 8 (de 1º y 2º) y nota media de Enseñanzas Profesionales 9 → 0,6 × 8 + 0,4 × 9 = <b>8,4</b></div>
+</div>
+
+<div class="sim">
+<div class="sim-h"><span>⚠️</span><div><h2>NO ES LO MISMO: LA SIMULTANEIDAD</h2><p>Si eliges <b>otra modalidad (que no sea Artes)</b>, como Ciencias o Humanidades, además de las Enseñanzas Profesionales</p></div></div>
+
+<div class="steps">
+<div class="st" style="--c:#14946b"><div class="ic">📚</div><h3>Todo el Bachillerato</h3><p>Comunes + modalidad, <b>menos las optativas</b></p></div>
+<div class="op">+</div>
+<div class="st" style="--c:#2f5fe0"><div class="ic">🎼</div><h3>Enseñanzas Profesionales</h3><p>Todas las de Música</p></div>
+<div class="op">=</div>
+<div class="st" style="--c:#e0a100"><div class="ic">🏅🏅</div><h3>DOS títulos</h3><p><b>Artes</b> + la modalidad elegida</p></div>
+</div>
+
+<div class="hrs">
+<h3>⏱️ Horas semanales de Bachillerato</h3>
+<div class="hb"><span>Bachillerato completo</span><div class="hbar"><i style="width:100%;background:#9aa5c9">30 h</i></div></div>
+<div class="hb"><span>Simultaneidad</span><div class="hbar"><i style="width:86.7%;background:var(--g)">26 h</i><i class="gain" style="width:13.3%">−4</i></div></div>
+<p class="gaint">🎉 ¡Ganas <b>4 horas semanales</b>! Se quitan las optativas.</p>
+</div>
+
+<div class="vc">
+<div class="ok"><b>👍 VENTAJAS</b><ul><li>⏱️ <b>4 horas semanales</b> menos</li><li>🏅 <b>Doble titulación</b>: Artes + modalidad elegida</li></ul></div>
+<div class="ko"><b>👎 CUIDADO</b><ul><li>📉 Sin optativas, ya no cuentan para la media del Bachillerato.</li><li>🎼 El 40 % es la media de <b>todas</b> las Enseñanzas Profesionales: a veces dos optativas con buena nota darían más media.</li></ul></div>
+</div>
+
+<div class="nota2">
+<h3>📊 ¿Cómo se calcula cada nota?</h3>
+<p class="lab">🎨 Título de <b>ARTES</b> (como en el bachillerato musical)</p>
+<div class="bar mini"><div class="b60">60%<small>materias comunes</small></div><div class="b40">40%<small>Enseñanzas Prof.</small></div></div>
+<p class="lab">🔬 Título de la <b>OTRA MODALIDAD</b></p>
+<div class="bar mini"><div class="b60 g">60%<small>todo el Bachillerato (sin optativas)</small></div><div class="b40">40%<small>Enseñanzas Prof.</small></div></div>
+<p class="art">Art. 21.5 y 21.6 de la Orden de 30-5-2023</p>
+</div>
+</div>
+
+<div class="foot">
+Normativa: art. 21 y disposición adicional 4ª de la Orden de 30 de mayo de 2023, por la que se regula el currículo del Bachillerato en Andalucía (BOJA).<br>
+Conservatorio Profesional de Música “Javier Perianes” · Departamento de Orientación
+</div>
+</div>
+</body>
+</html>
